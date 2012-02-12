@@ -4,6 +4,10 @@ namespace SOLID.SingleResponsibilityPrinciple
     {
         public class MessagePublisher
         {
+            // Authentication?
+            // Api formatting?
+
+
             public void PublishToTwitter(Message message)
             {
                 "message [{0}] was sent to Twitter".Log(message.Text);
