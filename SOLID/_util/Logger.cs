@@ -4,9 +4,12 @@
     {
         public static void Log(this string format, params object[] args)
         {
-            string msg = string.Format(format, args);
-            System.Diagnostics.Trace.WriteLine(msg);
+            System.Diagnostics.Trace.WriteLine(format.FormatWith(args));
         }
          
+			public static string FormatWith(this string format, params object[] args)
+			{
+				return string.Format(format, args);
+			}
     }
 }

@@ -44,7 +44,6 @@
     <Compile Include="InterfaceSegregationPrinciple\Better.cs" />
     <Compile Include="LiskovSubstitutionPrinciple\Bad.cs" />
     <Compile Include="LiskovSubstitutionPrinciple\Better.cs" />
-    <Compile Include="Message.cs" />
     <Compile Include="OpenClosedPrinciple\Bad.cs" />
     <Compile Include="OpenClosedPrinciple\Better.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

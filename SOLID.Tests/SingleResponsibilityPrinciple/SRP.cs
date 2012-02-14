@@ -16,7 +16,9 @@ namespace SOLID.Tests.SingleResponsibilityPrinciple
         public void ModifyMeToPublishToAll_Bad()
         {
             Message msg = new Message {Text = "Hello SRP!"};
+
             var messagePublisher = new SOLID.SingleResponsibilityPrinciple.BadExample.MessagePublisher();
+
             messagePublisher.PublishToFacebook(msg);
             messagePublisher.PublishToGooglePlus(msg);
         }
@@ -72,7 +74,7 @@ namespace SOLID.Tests.SingleResponsibilityPrinciple
 
             foreach (var messagePublisher in messagePublishers)
             {
-                messagePublisher.Publish(msg);
+                //messagePublisher.Publish(msg);
             }
         }
     }
