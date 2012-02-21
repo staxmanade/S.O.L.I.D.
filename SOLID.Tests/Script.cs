@@ -5,92 +5,212 @@
 
 
 
-/*
- * Presenter: Jason Jarrett @staxmanade
+
+
+
+
+
+
+
+/* 
  * 
- * Company: Vertigo
  * 
- * 
- * 
- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
  * Some BAD code...
  * http://vimeo.com/9981123
  * 
- * also locally in ?:\Mesh\Personal\Presentations\S.O.L.I.D\artifacts
+ * 
+ * 
+ * 
+ * ?:\Mesh\Personal\Presentations\S.O.L.I.D\artifacts
+ * 
+ * 
  */
 
-// This real code - so we have real 'usings' :P
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+ *      S.O.L.I.D.
+ *          S - (SRP) - Single Responsibility Principle
+ *          O - (OCP) - Open Closed Principle
+ *          L - (LSP) - Liskov Substitution Principle
+ *          I - (ISP) - Inversion Segregation Principle
+ *          D - (DIP) - Dependency Inversion Principle
+ * 
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Who am I?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+ * 
+ *     J.A.S.O.N.
+ *         J - July
+ *         A - August
+ *         S - September
+ *         O - October
+ *         N - November
+ * 
+ * 
+ * 
+ *   Jason Jarrett
+ *        - @staxmanade
+ *        - http://elegantcode.com
+ *        - Vertigo - http://vertigo.com
+ * 
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// This real code - so we have real 'usings' :P
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Net;
 using NUnit.Framework;
+
+
+
+
+
+
 
 namespace SOLID
 {
-	/*
-	 *      S.O.L.I.D.
-	 *          S - (SRP) - Single Responsibility Principle
-	 *          O - (OCP) - Open Closed Principle
-	 *          L - (LSP) - Liskov Substitution Principle
-	 *          I - (ISP) - Inversion Segregation Principle
-	 *          D - (DIP) - Dependency Inversion Principle
-	 * 
-	 */
-
-
-
-
-
-
 
 
 
@@ -111,16 +231,22 @@ namespace SOLID
 		 * 
 		 * 
 		 * 
-		 * Which tool would you choose to solve a problem?
-		 *  a. The tool that can do it all (but none of them really well)? 
+		 * Which is better?
+		 * 
+		 *  a. The tool that can do it all (but none of them really well)?
 		 *      It's awkard to hold, not very strong and difficult to use?
-		 *      D:\Code\SOLID\SOLID.Tests\images\_giant_swiss_army_knife_2.jpg
+		 *                                                                http://www.globalnerdy.com/wordpress/wp-content/uploads/2009/07/single_responsibility_principle.jpg
 		 *
 		 *  b. Or the toolbox where each tool is designed to do one specific 
 		 *      thing, and do it well?
-		 * 
+		 *                                                                https://lh3.googleusercontent.com/-n5Fsp8AYfeQ/TBTbnhd4TkI/AAAAAAAAFU8/OG5_OxcLh34/s720/TK12_RV_100-PC_A%26P_TOOL_SET_COMP.jpg
 		 * 
 		 */
+
+
+
+
+
 
 		// SRP sometimes relates to an object's cohesion
 		namespace Cohesion
@@ -133,7 +259,13 @@ namespace SOLID
 			 * 
 			 * 
 			 * 
-			 * Low Cohesion
+			 * 
+			 * 
+			 * 
+			 * 
+			 * 
+			 * 
+			 * Low Cohesion                                                  http://1.bp.blogspot.com/_F9uyqFDWxyg/TI7c9XHvK0I/AAAAAAAAGbE/irs-DarUSvU/s1600/cohesion+social.jpg
 			 * 
 			 * 
 			 * 
@@ -161,8 +293,9 @@ namespace SOLID
 			 * 
 			 * 
 			 * 
-			 * High Cohesion is
 			 * 
+			 * 
+			 * High Cohesion is                                              http://www.tonybaldry.co.uk/wp-content/uploads/2011/04/Social-Cohesion1.jpg
 			 * 
 			 * 
 			 * 
@@ -186,13 +319,14 @@ namespace SOLID
 		// Let's build an object that can send messages 
 		// to some social media sites... (all in theory of course)
 
+
 		namespace BadExample
 		{
 			public class MessagePublisher
 			{
-				// Notice how any facebook/twitter specific 
+				// Notice how any facebook/google+ specific 
 				// configuration/authentication/message formatting
-				// will all be smashed together within a single class.
+				// will all be smashed together within this single class.
 
 				public void PublishToFacebook(Message message)
 				{
@@ -259,7 +393,6 @@ namespace SOLID
 			// By breaking each publisher implementation into their
 			// own class, we can now easily change one without
 			// disturbing the other.
-
 
 			public class FacebookPublisher : IMessagePublisher
 			{
@@ -331,6 +464,29 @@ namespace SOLID
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	namespace OpenClosedPrincipal
 	{
 
@@ -339,11 +495,11 @@ namespace SOLID
 		 * Open/Closed Principal
 		 * 
 		 * 
-		 * “software entities … should be open for extension, but closed for modification”.
+		 * “software entities (classes, modules, functions, etc.) 
+		 *  should be open for extension, but closed for modification”.
 		 * 
 		 * 
-		 * Term originally coinded by Bertrand Meyer in 1988 book "Object Oriented Software Construction"
-		 * 
+		 * Bertrand Meyer coined term in 1988 book "Object Oriented Software Construction"
 		 * 
 		 * 
 		 */
@@ -359,7 +515,8 @@ namespace SOLID
 			{
 				public string FormatMessage(Message message)
 				{
-					return "Message for {0} - {1}".FormatWith(GetType().Name.Replace("Publisher", ""), message.Text);
+					string publisherName = GetType().Name.Replace("Publisher", "");
+					return "Message for {0} - {1}".FormatWith(publisherName, message.Text);
 				}
 			}
 
@@ -402,11 +559,18 @@ namespace SOLID
 		{
 			public class MessagePublisherBase
 			{
-				protected virtual string GetPublisherName { get { return GetType().Name.Replace("Publisher", ""); } }
+				protected virtual string GetPublisherName
+				{
+					get
+					{
+						return GetType().Name.Replace("Publisher", "");
+					}
+				}
 
 				public string FormatMessage(Message message)
 				{
-					return "Message for {0} - {1}".FormatWith(GetPublisherName, message.Text);
+					string publisherName = GetPublisherName;
+					return "Message for {0} - {1}".FormatWith(publisherName, message.Text);
 				}
 			}
 
@@ -443,8 +607,6 @@ namespace SOLID
 					string formattedMessage = publisher.FormatMessage(message);
 
 					formattedMessage.ShouldEqual("Message for Google+ - Hello!").Log();
-
-					// Ut-oh, how does the GooglePlusPublisher fix this?
 				}
 			}
 		}
@@ -612,7 +774,7 @@ namespace SOLID
 
 				// No need to implement un-supported features
 			}
-			
+
 
 
 
@@ -706,6 +868,28 @@ namespace SOLID
 
 
 
+
+
+
+
+
+
+
+	// I'm switching the order of I.D. in SOLID to D.I.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	namespace DependencyInversionPrinciple
 	{
 
@@ -715,18 +899,20 @@ namespace SOLID
 		 * 
 		 * 
 		 * 
-		 *		A. High-level modules should not depend on low-level modules. Both should depend on abstractions.
-		 *		B. Abstractions should not depend upon details. Details should depend upon abstractions.
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
+		 *		A. High-level modules should not depend on 
+		 *		   low-level modules. Both should depend on abstractions.
+		 *		   
+		 *		B. Abstractions should not depend upon details. Details 
+		 *		   should depend upon abstractions.
 		 * 
 		 * 
 		 * 
 		 */
+
+
+
+
+
 
 		namespace CoupledCodeWithNoAbstraction
 		{
@@ -763,6 +949,14 @@ namespace SOLID
 		}
 
 
+
+
+
+
+
+
+
+
 		namespace DecoupledCodeWithSomeAbstraction
 		{
 			public interface ISettings
@@ -777,7 +971,7 @@ namespace SOLID
 					get { return "http://facebook.com/SomeUrlIMadeUp"; }
 				}
 			}
-			
+
 			public class TestSettings : ISettings
 			{
 				public string FacebookPostUrl
@@ -818,7 +1012,6 @@ namespace SOLID
 				}
 			}
 		}
-
 	}
 
 
@@ -844,8 +1037,8 @@ namespace SOLID
 		 * 
 		 * 
 		 * 
-		 *		"Clients should not be forced to depend upon interfaces that they don't use."
-		 * 
+		 *		"Clients should not be forced to depend upon 
+		 *		 interfaces that they don't use."
 		 * 
 		 * 
 		 * 
@@ -857,6 +1050,55 @@ namespace SOLID
 		 */
 
 
+		namespace BadExample
+		{
+			public interface IList<T>
+			{
+				T this[int index] { get; set; }
+				int IndexOf(T item);
+				void Insert(int index, T item);
+				void RemoveAt(int index);
+
+
+				// ICollection<T> methods below
+				int Count { get; }
+				bool IsReadOnly { get; }
+				void Add(T item);
+				void Clear();
+				bool Contains(T item);
+				void CopyTo(T[] array, int arrayIndex);
+				bool Remove(T item);
+				
+				// Ignoring IEnumerable and IEnumerable<T> for this example
+			}
+		}
+
+
+		namespace PossiblyBetterInterfaces
+		{
+			public interface IListView<T>
+			{
+				T this[int index] { get; set; }
+				int IndexOf(T item);
+				int Count { get; }
+				bool Contains(T item);
+			}
+
+			public interface IList<T> : IListView<T>
+			{
+				void Add(T item);
+				void Clear();
+				void CopyTo(T[] array, int arrayIndex);
+				bool Remove(T item);
+				void Insert(int index, T item);
+				void RemoveAt(int index);
+			}
+
+
+			// Good historical context as to why the .net 
+			// library didn't do something like this 
+			// http://www.infoq.com/news/2011/10/ReadOnly-WInRT
+		}
 	}
 
 
@@ -867,6 +1109,117 @@ namespace SOLID
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/*
+	 *      S.O.L.I.D.
+	 *          S - (SRP) - Single Responsibility Principle
+	 *          O - (OCP) - Open Closed Principle
+	 *          L - (LSP) - Liskov Substitution Principle
+	 *          I - (ISP) - Inversion Segregation Principle
+	 *          D - (DIP) - Dependency Inversion Principle
+	 * 
+	 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	namespace OtherPrinciplesYouShouleKnow
+	{
+		/* 
+		 * 
+		 * D.R.Y.
+		 * 
+		 * 
+		 * K.I.S.S.
+		 * 
+		 * 
+		 * Law of Demeter
+		 * 
+		 * 
+		 * Principle of least astonishment
+		 * 
+		 * 
+		 */
+	}
 
 
 
