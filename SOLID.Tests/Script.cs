@@ -198,7 +198,6 @@
 
 // This real code - so we have real 'usings' :P
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using NUnit.Framework;
@@ -233,12 +232,13 @@ namespace SOLID
 		 * 
 		 * Which is better?
 		 * 
-		 *  a. The tool that can do it all (but none of them really well)?
-		 *      It's awkard to hold, not very strong and difficult to use?
+		 *  a. The tool that can do it all (but none of them 
+		 *     really well)? It's awkard to hold, not very 
+		 *     strong and difficult to use?
 		 *                                                                http://www.globalnerdy.com/wordpress/wp-content/uploads/2009/07/single_responsibility_principle.jpg
 		 *
-		 *  b. Or the toolbox where each tool is designed to do one specific 
-		 *      thing, and do it well?
+		 *  b. Or the toolbox where each tool is designed to 
+		 *     do one specific thing, and do it well?
 		 *                                                                https://lh3.googleusercontent.com/-n5Fsp8AYfeQ/TBTbnhd4TkI/AAAAAAAAFU8/OG5_OxcLh34/s720/TK12_RV_100-PC_A%26P_TOOL_SET_COMP.jpg
 		 * 
 		 */
@@ -358,8 +358,10 @@ namespace SOLID
 				[Test]
 				public void SendAMessageToGooglePlus()
 				{
-					// All I want to do is send a Google+ plus a message
-					// What if facebook configuration causes this operation to crash?
+					// All I want to do is send a Google+ plus 
+					// a message.
+					// What if facebook configuration causes this 
+					// operation to crash?
 					MessagePublisher messagePublisher = new MessagePublisher();
 					messagePublisher.PublishToGooglePlus(_message);
 				}
@@ -499,7 +501,8 @@ namespace SOLID
 		 *  should be open for extension, but closed for modification”.
 		 * 
 		 * 
-		 * Bertrand Meyer coined term in 1988 book "Object Oriented Software Construction"
+		 * Bertrand Meyer coined term in 1988 book "Object
+		 * Oriented Software Construction"
 		 * 
 		 * 
 		 */
@@ -515,8 +518,11 @@ namespace SOLID
 			{
 				public string FormatMessage(Message message)
 				{
-					string publisherName = GetType().Name.Replace("Publisher", "");
-					return "Message for {0} - {1}".FormatWith(publisherName, message.Text);
+					string publisherName = GetType().Name
+						.Replace("Publisher", "");
+
+					return "Message for {0} - {1}"
+						.FormatWith(publisherName, message.Text);
 				}
 			}
 
@@ -536,7 +542,9 @@ namespace SOLID
 
 					string formattedMessage = publisher.FormatMessage(message);
 
-					formattedMessage.ShouldEqual("Message for Facebook - Hello!").Log();
+					formattedMessage
+						.ShouldEqual("Message for Facebook - Hello!")
+						.Log();
 				}
 
 				[Test]
@@ -547,7 +555,9 @@ namespace SOLID
 
 					string formattedMessage = publisher.FormatMessage(message);
 
-					formattedMessage.ShouldEqual("Message for Google+ - Hello!").Log();
+					formattedMessage
+						.ShouldEqual("Message for Google+ - Hello!")
+						.Log();
 
 					// Ut-oh, how does the GooglePlusPublisher fix this?
 				}
@@ -570,7 +580,8 @@ namespace SOLID
 				public string FormatMessage(Message message)
 				{
 					string publisherName = GetPublisherName;
-					return "Message for {0} - {1}".FormatWith(publisherName, message.Text);
+					return "Message for {0} - {1}"
+						.FormatWith(publisherName, message.Text);
 				}
 			}
 
@@ -595,7 +606,9 @@ namespace SOLID
 
 					string formattedMessage = publisher.FormatMessage(message);
 
-					formattedMessage.ShouldEqual("Message for Facebook - Hello!").Log();
+					formattedMessage
+						.ShouldEqual("Message for Facebook - Hello!")
+						.Log();
 				}
 
 				[Test]
@@ -606,7 +619,9 @@ namespace SOLID
 
 					string formattedMessage = publisher.FormatMessage(message);
 
-					formattedMessage.ShouldEqual("Message for Google+ - Hello!").Log();
+					formattedMessage
+						.ShouldEqual("Message for Google+ - Hello!")
+						.Log();
 				}
 			}
 		}
@@ -652,17 +667,21 @@ namespace SOLID
 		 * 
 		 * 
 		 * 
-		 *			“What is wanted here is something like the following substitution 
-		 *			property: If for each object o1 of type S there is an object o2 
-		 *			of type T such that for all programs P defined in terms of T, the 
-		 *			behavior of P is unchanged when o1 is substituted for o2 then S is 
-		 *			a subtype of T.”
+		 *			“What is wanted here is something like the 
+		 *			following substitution property: If for each 
+		 *			object o1 of type S there is an object o2 of 
+		 *			type T such that for all programs P defined 
+		 *			in terms of T, the behavior of P is unchanged 
+		 *			when o1 is substituted for o2 then S is a 
+		 *			subtype of T.”
 		 * 
 		 * 
-		 * Or in a more understandable version from Uncle Bob (Robert C. Martin)
+		 * Or in a more understandable version from Uncle 
+		 * Bob (Robert C. Martin)
 		 * 
-		 *			“Functions that use pointers or references to base classes must 
-		 *			be able to use objects of derived classes without knowing it.”
+		 *			“Functions that use pointers or references 
+		 *			to base classes must be able to use objects 
+		 *			of derived classes without knowing it.”
 		 * 
 		 */
 
@@ -700,7 +719,7 @@ namespace SOLID
 
 				public override void PublishPhoto(byte[] photo)
 				{
-					throw new NotSupportedException("Twitter cannot accept photos");
+					throw new NotSupportedException("Noo Noo.");
 				}
 			}
 
@@ -840,8 +859,10 @@ namespace SOLID
 				public void ThisIsABummer()
 				{
 					// ReadOnlyCollection implements the following interfaces
-					//  IList<T>, ICollection<T>, IEnumerable<T>, IList, ICollection, IEnumerable
-					var readOnlyCollection = new ReadOnlyCollection<int>(new[] { 0, 1, 2 });
+					//  IList<T>, ICollection<T>, IEnumerable<T>, 
+					//  IList, ICollection, IEnumerable
+					var readOnlyCollection = 
+						new ReadOnlyCollection<int>(new[] { 0, 1, 2 });
 
 					AddItemToList(readOnlyCollection, 1);
 				}
@@ -1246,7 +1267,10 @@ namespace SOLID
 
 
 
-
+	/*
+	 * Below is just some code I leveraged above.
+	 * 
+	 */
 
 
 
@@ -1278,4 +1302,3 @@ In diam nisi, tincidunt at bibendum eget, tempor sit amet nisi. Duis sollicitudi
 	}
 
 }
-
