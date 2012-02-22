@@ -896,7 +896,13 @@ namespace SOLID
 
 
 
-	// I'm switching the order of I.D. in SOLID to D.I.
+	// I'm going to witch the order of I.D. in SOLID to D.I.
+
+
+
+
+
+
 
 
 
@@ -953,7 +959,7 @@ namespace SOLID
 
 					var postUrl = settings.FacebookPostUrl;
 
-					("Posted message to [" + message + "]" + postUrl).Log();
+					("Posted message [" + message + "] to " + postUrl).Log();
 				}
 			}
 
@@ -1014,7 +1020,7 @@ namespace SOLID
 				{
 					var postUrl = _settings.FacebookPostUrl;
 
-					("Posted message to [" + message + "]" + postUrl).Log();
+					("Posted message [" + message + "] to " + postUrl).Log();
 				}
 			}
 
