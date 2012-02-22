@@ -1238,11 +1238,18 @@ namespace SOLID
 		 * 
 		 * K.I.S.S.
 		 * 
+		 * Y.A.N.G.I.
 		 * 
-		 * Law of Demeter
+		 * 
+		 * Law of Demeter - Each unit should only talk to it's friends; don't talk to strangers.
 		 * 
 		 * 
-		 * Principle of least astonishment
+		 * Principle of least surprise
+		 * 
+		 * 
+		 * 
+		 * 
+		 * What other good ones are out there?
 		 * 
 		 * 
 		 */
