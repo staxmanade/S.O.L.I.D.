@@ -1229,7 +1229,7 @@ namespace SOLID
 
 
 
-	namespace OtherPrinciplesYouShouleKnow
+	namespace OtherPrinciplesYouShouldKnow
 	{
 		/* 
 		 * 
