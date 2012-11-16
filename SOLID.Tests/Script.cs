@@ -1147,10 +1147,10 @@ namespace SOLID
                 [Test]
                 public void PublishTest()
                 {
-                    //var networkPoster = new Settings();
-                    var settings = new TestNetworkPoster();
+                    var poster = new ProductionNetworkPoster();
+                    //var poster = new TestNetworkPoster();
 
-                    var facebookPublisher = new FacebookPublisher(settings);
+                    var facebookPublisher = new FacebookPublisher(poster);
 
                     facebookPublisher.Publish("Hola!");
                 }
